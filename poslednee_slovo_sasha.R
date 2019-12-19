@@ -12,7 +12,13 @@ poslednee_slovo <- poslednee_slovo %>%
          Kto = Кто,
          Statja = По.какой.статье,
          Prof = Профессия,
-         Punishment = Что.получил)
+         Punishment = Что.получил) %>%
+  filter(God_rozhdenija != "н") %>%
+  mutate(God_rozhdenija = as.Date(God_rozhdenija, '%Y'))
+
+poslednee_slovo %>%
+  ggplot(aes(God_rozhdenija, Prof, fill = Prof)) +
+  geom_density_ridges(aes(alpha = 0.5))
 
 poslednee_slovo %>%
   distinct() %>%
