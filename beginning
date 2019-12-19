@@ -8,3 +8,13 @@ doc_list <- as_list(doc)
 doc_list %>% 
   unlist() %>% 
   enframe() %>%
+  
+  docc <- doc_list$html$body%>%
+  flatten()%>%
+  flatten()%>%
+  flatten()
+
+imya <- docc[8]
+god <- docc[11]
+statia <- docc[14]
+srok <- docc[20]
