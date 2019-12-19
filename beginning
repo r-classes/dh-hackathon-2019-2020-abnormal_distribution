@@ -4,3 +4,7 @@ url <- "http://lastword.pythonanywhere.com/%D0%9A%D0%BE%D1%82%D0%BE%D0%B2_%D0%9A
 xml2::download_html(url)
 doc <- read_html(url)
 doc_list <- as_list(doc)
+
+doc_list %>% 
+  unlist() %>% 
+  enframe() %>%
