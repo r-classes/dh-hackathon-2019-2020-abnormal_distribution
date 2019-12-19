@@ -18,3 +18,18 @@ imya <- docc[8]
 god <- docc[11]
 statia <- docc[14]
 srok <- docc[20]
+
+try <- map_df(unlist(list_of_titles), function(x){
+  doc <- read_html(x)
+  doc_list <- as_list(doc)
+  
+  docc <- doc_list$html$body%>%
+    flatten()%>%
+    flatten()%>%
+    flatten()
+  
+    tibble(imya = docc[[8]],
+         god = docc[[11]],
+         statia = docc[[14]],
+         srok = ifelse(, docc[[20]], NA))
+})
